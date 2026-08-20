@@ -1,0 +1,5 @@
+## Application data search: Smart Context Compression
+
+This problem focuses on reducing latency by cutting out useless text before it ever reaches the LLM. 
+ Token-Diet Dynamic Context Compressor 
+The Problem: Traditional RAG engines pass entire retrieved paragraphs into the LLM context window. This balloons time-to-first-token (TTFT) latency and drives up API costs because LLMs process thousands of unnecessary words. o The Goal: Build a post-retrieval optimization pipeline. Once relevant chunks are fetched from a vector database, use a lightweight, local text-ranking model (like Cross-Encoders or BM25 semantic scoring) to strip out filler sentences, adjectives, and redundant words. o Visual Anchor: Key Feature: Pass only the dense, information-rich semantic sentences to the LLM. Create a dashboard displaying your Context Compression Ratio (e.g., 70% tokens saved) and the corresponding Latency Drop (ms) 

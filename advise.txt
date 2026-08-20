@@ -1,0 +1,14 @@
+Build "Token-Diet" — a RAG context compressor demo — in Next.js 14 (App Router) + TypeScript + Tailwind. Single repo, API routes for backend logic. No auth, no tests, no database.
+
+3 CORE FEATURES ONLY:
+1. Input panel: query + 3 hardcoded sample "retrieved chunks" (150-200 words each) pre-loaded, editable textarea
+2. Compression engine (API route): split chunks into sentences, score relevance via simple TF-IDF/keyword overlap scoring (no ML model — keep it fast/dependency-free), strip sentences below a threshold slider (0-100%)
+3. Free API integration: send the COMPRESSED context to OpenRouter using meta-llama/llama-3.3-70b-instruct:free to generate a real answer — prove the compressed context still works. Use baseURL https://openrouter.ai/api/v1, OpenAI-compatible chat/completions shape, API key from env var OPENROUTER_API_KEY. Add basic error handling for 429 rate limits (20 req/min, 200/day on free tier) with a friendly fallback message.
+
+DASHBOARD (prioritize visual polish):
+- Split view: original vs compressed text, removed sentences struck-through in red
+- 3 animated metric cards: Tokens Saved (%), Compression Ratio, Est. Latency Drop (ms)
+- Live-updating bar chart (recharts) showing before/after token counts
+- Threshold slider updates everything in real-time
+
+BUILD ORDER: (1) compression logic + API route → (2) OpenRouter/Llama integration → (3) dashboard UI/polish. Use gradient cards, smooth transitions, dark mode. Ship a working demo in 3-4 hours — skip edge cases, error handling beyond basics, and any multi-page flows. Single page app.
