@@ -16,7 +16,8 @@
 .DS_Store
 *.pem
 npm-debug.log*
-
+.claude/
+.claude
 # typescript
 *.tsbuildinfo
 next-env.d.ts
